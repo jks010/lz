@@ -1,0 +1,7 @@
+services:
+  lz-api:
+    build:
+      context: .
+    network_mode: host
+    volumes:
+      - .:/app
