@@ -10,7 +10,7 @@ import { MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 })
 export class UserOperationsComponent implements OnInit{
   form: FormGroup;
-
+  editing: boolean = false
   constructor(private fb: FormBuilder, 
     private userService: UserService,
     private refDialog: MatDialogRef<UserOperationsComponent>,
@@ -26,6 +26,9 @@ export class UserOperationsComponent implements OnInit{
   ngOnInit(): void{
     this.form.patchValue(this.data)
     console.log(this.data)
+    if(this.data){
+      this.editing = true;
+    }
   }
 
 
@@ -34,7 +37,7 @@ export class UserOperationsComponent implements OnInit{
       alert("Nome precisa de ao menos 10 caracteres")
       return;
     }
-    else if(this.form.value.description.length<5){
+    else if(!this.editing && this.form.value.description.length<5){
       alert("Descrição precisa de ao menos 5 caracteres")
       return;
     }
