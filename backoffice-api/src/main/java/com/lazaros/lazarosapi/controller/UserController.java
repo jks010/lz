@@ -7,6 +7,8 @@ import com.lazaros.lazarosapi.repository.UserRepository;
 import com.lazaros.lazarosapi.service.UserService;
 import org.hibernate.annotations.Any;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,7 +31,7 @@ public class UserController {
     public ResponseEntity<Any> addUser(@RequestBody FormDTO formDTO){
         try{
             service.addUser(formDTO);
-            return ResponseEntity.ok().build();
+            return ResponseEntity.status(HttpStatus.CREATED).build();
         }catch(Exception e){
             System.out.println(e.getMessage());
             return ResponseEntity.internalServerError().build();
