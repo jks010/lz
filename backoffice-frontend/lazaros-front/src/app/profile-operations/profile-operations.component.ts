@@ -52,7 +52,7 @@ export class ProfileOperationsComponent {
 
         this.profileService.updateUser(sendForm).subscribe({
           next: (res: any) => {
-            alert("Usuário editado com sucesso!")
+            alert("Perfil editado com sucesso!")
             this.refDialog.close(true);
           }
         , error: console.log})
@@ -62,7 +62,7 @@ export class ProfileOperationsComponent {
 
         this.profileService.addProfile(sendForm).subscribe({
           next: (res: any) => {
-            alert("Usuário adicionado com sucesso!")
+            alert("Perfil adicionado com sucesso!")
             this.refDialog.close(true);
           }
         , error: console.log})

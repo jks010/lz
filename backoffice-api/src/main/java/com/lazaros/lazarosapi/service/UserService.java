@@ -27,17 +27,18 @@ public class UserService {
     }
 
     public void addUser(FormDTO formDTO) throws Exception {
-        UserDTO userDTO = formDTO.getUserDTO();
-        UserProfileDTO userProfileDTO = formDTO.getUserProfileDTO();
-        if(userDTO.getName().length()<10){
+
+        if(formDTO.getName().length()<10){
             throw new Exception("Name too short");
         }
-        if(userProfileDTO.getDescription().length()<5){
+        if(formDTO.getDescription().length()<5){
             throw new Exception("Description too short");
         }
-        User newUser = new User(userDTO.getName());
+        User newUser = new User(formDTO.getName());
         User savedUser = repository.save(newUser);
+        UserProfileDTO userProfileDTO = new UserProfileDTO();
         userProfileDTO.setUserId(savedUser.getId());
+        userProfileDTO.setDescription(formDTO.getDescription());
         userProfilesService.addUserProfile(userProfileDTO);
     }
 

@@ -54,7 +54,7 @@ export class UserOperationsComponent implements OnInit{
         , error: console.log})
       } 
       else{
-      let sendForm = {user: {name: this.form.value.name}, userProfile: {description: this.form.value.description} }
+      let sendForm = { name: this.form.value.name, description: this.form.value.description }
 
       this.userService.addUser(sendForm).subscribe({
         next: (res: any) => {

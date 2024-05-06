@@ -4,23 +4,21 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class FormDTO {
 
-    @JsonProperty("user")
-    private UserDTO userDTO;
+    private String name;
 
-    @JsonProperty("userProfile")
-    private UserProfileDTO userProfileDTO;
+    private String description;
     public FormDTO(){}
 
-    public UserDTO getUserDTO() {
-        return userDTO;
+    public FormDTO(String name, String description){
+        this.name = name;
+        this.description = description;
     }
 
-    public UserProfileDTO getUserProfileDTO() {
-        return userProfileDTO;
+    public String getName() {
+        return name;
     }
 
-    public FormDTO(UserDTO userDTO, UserProfileDTO userProfileDTO){
-        this.userDTO = userDTO;
-        this.userProfileDTO = userProfileDTO;
+    public String getDescription() {
+        return description;
     }
 }

@@ -1,13 +1,8 @@
 package com.lazaros.lazarosapi.controller;
 
-import com.lazaros.lazarosapi.dto.FormDTO;
-import com.lazaros.lazarosapi.dto.UserDTO;
 import com.lazaros.lazarosapi.dto.UserProfileDTO;
-import com.lazaros.lazarosapi.entity.User;
-import com.lazaros.lazarosapi.entity.UserProfiles;
 import com.lazaros.lazarosapi.exception.CustomException;
 import com.lazaros.lazarosapi.service.UserProfilesService;
-import com.lazaros.lazarosapi.service.UserService;
 import org.hibernate.annotations.Any;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
