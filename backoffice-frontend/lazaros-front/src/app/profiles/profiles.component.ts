@@ -100,7 +100,14 @@ export class ProfilesComponent {
         alert("Usuário deletado com sucesso!")
         this.getUserList()
       },
-      error: (err)=> {alert("Erro ao deletar usuário")}
+      error: (err)=> {
+        if(err.status == 409){
+          alert(err.error)
+        }
+        else {
+          alert("Erro ao deletar usuário")
+        }
+      }
     })
     
   }

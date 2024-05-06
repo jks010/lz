@@ -49,13 +49,13 @@ public class UserProfileController {
     }
 
     @DeleteMapping("/deleteUserProfile/{id}")
-    public ResponseEntity<Any> deleteUserProfile(@PathVariable Long id){
+    public ResponseEntity<Object> deleteUserProfile(@PathVariable Long id){
         try{
             service.deleteUserProfile(id);
             return ResponseEntity.ok().build();
         }
         catch(CustomException e){
-            return ResponseEntity.status(HttpStatus.CONFLICT).build();
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
         }
         catch(Exception e){
             System.out.println(e.getMessage());

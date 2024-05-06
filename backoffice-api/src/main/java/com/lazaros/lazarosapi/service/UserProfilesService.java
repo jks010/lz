@@ -53,7 +53,7 @@ public class UserProfilesService {
     public void deleteUserProfile(Long id) throws CustomException{
         UserProfiles userProfiles = repository.findById(id).orElseThrow();
         if(repository.findByUserId(userProfiles.getUser().getId()).size()<2){
-            throw new CustomException("Must have at least one profile");
+            throw new CustomException("Obrigatório ter no mínimo 1 perfil.");
         }
         repository.deleteById(id);
     }
